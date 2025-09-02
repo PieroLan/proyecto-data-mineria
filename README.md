@@ -2,10 +2,11 @@
 
 Proyectos de machine learning con python y R (opcional)
 
-* [Resources sharing to docker](#resources-sharing-to-docker)
-* [Runing form Docker](#runing-form-Docker)
-* [R en Notebook (opcional)](#r-en-notebook-opcional)
-* [License](#license)
+- [Machine Learning projects with docker](#machine-learning-projects-with-docker)
+  - [Resources sharing to docker](#resources-sharing-to-docker)
+    - [Runing form Docker](#runing-form-docker)
+    - [R en Notebook (opcional)](#r-en-notebook-opcional)
+    - [License](#license)
 
 ## Resources sharing to docker
 
@@ -40,7 +41,7 @@ services:
 Get and runing docker project
 
 ```bash
-PS D:\dockr>git clone https://github.com/202ml/202ml.git
+PS D:\dockr>git clone https://github.com/PieroLan/proyecto-data-mineria.git
 PS D:\dockr>cd 202ml 
 
 PS D:\dockr\202ml> docker-compose up --build
