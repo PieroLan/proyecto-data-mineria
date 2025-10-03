@@ -1,0 +1,15 @@
+{
+  "QS102_F": "int64",
+  "QS23": "int64",
+  "QS23_scaled": "float64",
+  "QS907": "float64",
+  "QS207C": "float64",
+  "QS207C_scaled": "float64",
+  "QS900": "float64",
+  "QS219C": "float64",
+  "QSSEXO_F": "int64",
+  "QS500_F": "int64",
+  "QS213C": "float64",
+  "QS901": "float64",
+  "QS208_F": "int64"
+}
