@@ -110,7 +110,7 @@ git clone https://github.com/PieroLan/proyecto-data-mineria.git
 ```
 
 ## 📁 Path del Código en Jupyter
-
+```bash
 proyecto-data-mineria/
 │
 ├── notebooks/
@@ -121,3 +121,4 @@ proyecto-data-mineria/
 │   └── CSALUD01_2024.csv
 │
 └── README.md
+```
