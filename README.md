@@ -1,118 +1,123 @@
-# Machine Learning projects with docker
+# 🧠 Predicción de Diabetes con Machine Learning
 
-Proyectos de machine learning con python y R (opcional)
+## 📌 Descripción del Proyecto
+Este proyecto tiene como objetivo desarrollar un modelo de **clasificación** capaz de predecir la probabilidad de que una persona padezca diabetes, utilizando variables sociodemográficas, clínicas básicas y de estilo de vida.
 
-- [Machine Learning projects with docker](#machine-learning-projects-with-docker)
-  - [Resources sharing to docker](#resources-sharing-to-docker)
-    - [Runing form Docker](#runing-form-docker)
-    - [R en Notebook (opcional)](#r-en-notebook-opcional)
-    - [License](#license)
+El enfoque busca demostrar cómo, a partir de datos accesibles (sin pruebas de laboratorio), es posible apoyar la **detección temprana** y la **toma de decisiones en salud pública**.
 
-## Resources sharing to docker
+---
 
-	Add D:\dockr
+## 🎯 Objetivos
 
-Dockerfile
+### Objetivo General
+Desarrollar un modelo predictivo de diabetes basado en datos reales.
+
+### Objetivos Específicos
+- Analizar y procesar datos provenientes de encuestas de salud.
+- Identificar variables relevantes para la predicción.
+- Construir un modelo de clasificación.
+- Evaluar el desempeño del modelo mediante métricas técnicas.
+
+---
+
+## 📊 Dataset
+
+- **Fuente:** INEI (Instituto Nacional de Estadística e Informática)
+- **Encuesta:** Encuesta Demográfica y de Salud Familiar (ENDES)
+- **Año:** 2024  
+- **Módulo:** 1640  
+- **Archivo:** `CSALUD01_2024.csv`
+
+
+---
+
+## 🧾 Variables Utilizadas
+
+### 🧍 Sociodemográficas
+- Edad
+- Sexo
+
+### ⚕️ Clínicas
+- Peso
+- Talla
+- Perímetro abdominal
+- Presión arterial (sistólica y diastólica)
+- Diagnóstico de hipertensión
+
+### 🚬 Estilo de Vida
+- Consumo de tabaco
+- Consumo de alcohol
+
+### 🥗 Alimentación
+- Frecuencia de consumo de frutas
+- Verduras
+- Jugos
+
+---
+
+## ⚙️ Tecnologías Utilizadas
+
+- **Python**
+- **Pandas**
+- **NumPy**
+- Jupyter Notebook
+
+---
+
+## 🔄 Proceso del Proyecto
+
+### 1. Business Understanding
+- Definición del problema de clasificación
+- Identificación de variables relevantes
+- Definición de métricas técnicas y de negocio
+
+### 2. Data Understanding
+- Carga de datos
+- Exploración inicial (`info()`, `head()`, `shape`)
+- Identificación de valores nulos y tipos de datos
+
+### 3. Data Preparation
+- Limpieza de datos
+- Selección de variables
+- Transformación de datos
+
+### 4. Modelado
+- Construcción del modelo de clasificación
+
+### 5. Evaluación
+
+Se utilizaron las siguientes métricas:
+
+- **Accuracy ≥ 0.70**
+- **Precision ≥ 0.70**
+- **AUC-ROC ≥ 0.80**
+
+---
+
+## 📈 Resultados Esperados
+
+- Identificación de personas en riesgo de diabetes sin necesidad de exámenes de laboratorio.
+- Apoyo a estrategias de prevención en salud pública.
+- Reducción de costos en diagnósticos médicos.
+
+---
+
+## 🚀 Cómo ejecutar el proyecto
+
+1. Clonar el repositorio:
 ```bash
-FROM continuumio/anaconda3
-ADD requirements.txt /
-RUN pip install -r requirements.txt
-CMD ["/opt/conda/bin/jupyter", "notebook", "--notebook-dir=/opt/notebooks", "--ip='*'", "--no-browser", "--allow-root"]
-
+git clone https://github.com/PieroLan/proyecto-data-mineria.git
 ```
 
-docker-compose.yaml
-```bash
-version: '2'
-services:
-  anaconda:
-    container_name: ml
-    build: .
-    volumes:
-      - "./notebooks:/opt/notebooks"
-    ports:
-      - "3131:8888"
+## 📁 Path del Código en Jupyter
 
-```
-
-
-### Runing form Docker
-
-Get and runing docker project
-
-```bash
-PS D:\dockr>git clone https://github.com/PieroLan/proyecto-data-mineria.git
-PS D:\dockr>cd 202ml 
-
-PS D:\dockr\202ml> docker-compose up --build
-
-```
-
-Copiar el token y pegar en http://localhost:3131
-
-Luego ir al modelo base http://localhost:3131/notebooks/202ml/tree/DT.ipynb
-
-
-En otra terminal puede ver que el servicio  ya corre
-```bash
-PS D:\dockr\202ml> docker ps
-CONTAINER ID        IMAGE                         COMMAND                  CREATED             STATUS              PORTS                    NAMES
-845d4d868b87        202ml_anaconda                "/opt/conda/bin/jupy…"   6 weeks ago         Up 4 days           0.0.0.0:3131->8888/tcp   ml
-
-```
-
-Si quiere correr en back, ejecute
-```bash
-PS D:\dockr\202ml> docker-compose up -d
-
-```
-Ir a  http://localhost:3131/ 
-
-
-(opcional) si deseas instalar algunas librerias adicionales, por ejemplo [R en Notebook](#r-en-notebook), ingrese al contenedor
-
-```bash
-PS D:\dockr\202ml> docker exec -it ml bash
-
-(base) root@845d4d868b87:/#   
-```
-
-### R en Notebook (opcional)
-
-Cuando esto no funciona
-```bash
-conda install -c r r-essentials
-```
-En el contenedor
-
-En win o linux instale R: 
-```bash
-(base) root@845d4d868b87:/#apt update
-(base) root@845d4d868b87:/#apt install r-base
-(base) root@845d4d868b87:/#apt install build-essential
-
-```
-(base) root@845d4d868b87:/# sudo apt update
-
-Ingrese al shell de R y ejecute:
-```bash
-(base) root@845d4d868b87:/#R 
-
->install.packages('IRkernel')
->IRkernel::installspec()
-[InstallKernelSpec] Installed kernelspec ir in /root/.local/share/jupyter/kernels/ir
-> q()
-Save workspace image? [y/n/c]: y
-(base) root@845d4d868b87:/#     
-```
-Ver https://irkernel.github.io/installation
-
-
-### License
-
-
-
-GNU, see [LICENSE](LICENSE).
-
-Equipo de investigación y desarrollo: 
-- angeli@upeu.edu.pe, 
+proyecto-data-mineria/
+│
+├── notebooks/
+│   └── proyecto-grupal/
+│       └── procesamiento_data_diabetes_sin_transformacion_VF_2.ipynb
+│
+├── data/
+│   └── CSALUD01_2024.csv
+│
+└── README.md
